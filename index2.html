@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+  <!-- ================= FONT / META ================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BADAR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- ================= STYLE ================= -->
+  <style>
+
+    /* RESET */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Manrope',sans-serif;background:#07070d;color:#fff;}
+
+    /* GLOBAL */
+    .container{max-width:1300px;margin:auto;padding:0 24px;}
+    .light{background:#efefef;color:#111;}
+    .badge{display:inline-block;background:#1c1c24;padding:10px 16px;border-radius:999px;}
+
+    /* NAVBAR */
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:28px 0;}
+    .nav a{color:#fff;text-decoration:none;margin-left:28px;}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:30px 0 70px;}
+    .hero h1{font-size:68px;line-height:1.08;margin:24px 0;}
+    .hero p{font-size:23px;color:#cfcfcf;line-height:1.6;margin-bottom:28px;}
+    .hero img{width:100%;height:700px;object-fit:cover;border-radius:24px;}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:#1c1c24;color:#fff;padding:18px 28px;border-radius:999px;text-decoration:none;}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:90px 0 50px;}
+    .num{font-size:78px;}
+
+    /* SLIDER */
+    .gallery-wrap{overflow:hidden;padding-bottom:80px;}
+    .gallery-track{display:flex;gap:22px;width:max-content;animation:slide 45s linear infinite;}
+    .gallery-track img{width:300px;height:320px;object-fit:cover;border-radius:20px;flex-shrink:0;}
+    @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* SERVICES */
+    .center{text-align:center;}
+    .services-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;padding:60px 0 90px;}
+    .services-wrap img{width:100%;height:700px;object-fit:cover;border-radius:24px;}
+    .accordion-item{border-bottom:1px solid #ccc;padding:18px 0;}
+    .accordion-title{display:flex;justify-content:space-between;cursor:pointer;font-size:32px;}
+    .accordion-content{display:block;padding-top:14px;color:#555;font-size:21px;line-height:1.6;}
+
+    /* FOOTER */
+    .footer{padding:70px 0;}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:35px;font-size:24px;}
+    .right{text-align:right;}
+    .copy{border-top:1px solid rgba(255,255,255,.1);margin-top:35px;padding-top:20px;color:#777;}
+
+  /* MOBILE */
+    @media(max-width:900px){
+      .container{padding:0 18px;}
+      .nav{padding:14px 0;align-items:center;}
+      .nav h1{font-size:20px;}
+      .nav div a{display:none;}
+      .nav div::after{content:'☰';display:block;font-size:24px;color:#fff;}
+
+      .hero,.stats,.services-wrap{grid-template-columns:1fr;gap:24px;width:100%;}
+      .hero{padding:10px 0 30px;}
+      .hero h1{font-size:34px;line-height:1.05;margin:14px 0;}
+      .hero p{font-size:14px;line-height:1.5;margin-bottom:18px;}
+      .hero img{height:420px;order:-1;}
+      .badge{font-size:11px;padding:7px 10px;}
+      .btn{font-size:13px;padding:12px 18px;}
+
+      .stats{padding:45px 0 20px;gap:26px;}
+      .num{font-size:52px;}
+      .stats h3{font-size:18px;margin-top:6px;}
+      .stats p{font-size:12px;}
+
+      .gallery-track img{width:220px;height:220px;}
+
+      #uslugi h2{font-size:38px !important;line-height:1.1;}
+      .services-wrap{padding:30px 0 50px;gap:18px;}
+      .services-wrap img{height:260px;order:2;}
+      .accordion-title{font-size:18px;line-height:1.25;gap:10px;align-items:flex-start;}
+      .accordion-content{font-size:13px;line-height:1.5;padding-right:8px;}
+
+      .footer{padding:38px 0;}
+      .footer h2{font-size:30px !important;line-height:1.1;}
+      .footer-grid{grid-template-columns:1fr;gap:8px;margin-top:18px;font-size:16px;align-items:start;}
+      .footer-grid p{margin-top:0 !important;line-height:1.6;} .footer-grid div:first-child{display:none;}
+      .right{text-align:right;}
+      .copy{margin-top:18px;padding-top:12px;font-size:11px;}
+    }
+      .hero h1{font-size:44px;}
+      .num{font-size:56px;}
+      .accordion-title{font-size:26px;}
+      .right{text-align:left;}
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ================= HERO SECTION ================= -->
+<div class="container">
+
+  <div class="nav">
+    <h1>BADAR</h1>
+    <div>
+      <a href="#prace">Nasze Prace</a>
+      <a href="#uslugi">Nasze Usługi</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+
+  <section class="hero">
+
+    <div>
+      <div class="badge">● Dostępny do pracy</div>
+      <h1>Malowanie Dachów Usługi Dekarskie W Małopolsce</h1>
+      <p>Od lat świadczymy kompleksowe usługi malowania dachów, wymiany rynien oraz wycinki drzew na terenie całej Małopolski.</p>
+      <a href="#kontakt" class="btn">Zamów wycenę ↗</a>
+    </div>
+
+    <img src="hero.avif">
+
+  </section>
+</div>
+
+<!-- ================= STATS + SLIDER ================= -->
+<section id="prace" class="light">
+<div class="container">
+
+  <div class="stats">
+    <div><div class="num" data-target="10">0</div><h3>Lata doświadczenia</h3></div>
+    <div><div class="num" data-target="999">0</div><h3>Zrealizowane prace</h3></div>
+    <div><div class="num" data-target="100">0</div><h3>Zadowolonych klientów</h3></div>
+  </div>
+
+  <div class="gallery-wrap">
+    <div class="gallery-track" id="track"></div>
+  </div>
+
+</div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="uslugi" class="light">
+<div class="container center" style="padding-top:70px;">
+  <div class="badge" style="background:#111;color:#fff;">Usługi</div>
+  <h2 style="font-size:62px;">Czym się zajmujemy</h2>
+</div>
+
+<div class="container services-wrap">
+
+  <img src="h+t.jpg">
+
+  <div>
+
+    <div class="accordion-item">
+      <div class="accordion-title">Malowanie dachów <span>−</span></div>
+      <div class="accordion-content">Malowanie i mycie dachów, montaż, wymiana i czyszczenie rynien, sprzedaż rynien KANION oraz wkrętów dekarskich, wymiana gwoździ na wkręty, montaż systemów przeciwśniegowych MDM, okuwanie kominów, hydroizolacja dachów, Mycie i malowanie elewacji.</div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-title">Usługi drzewne <span>−</span></div>
+      <div class="accordion-content">Wycinka drzew, ścinka sekcyjna trudnych drzew, usuwanie posuszu, przesadzanie i sadzenie drzew, frezowanie i usuwanie pni, pielęgnacja zieleni niskiej i wykaszanie nieużytków. Realizujemy zlecenia w każdych warunkach, w tym w ciasnej zabudowie i przy liniach energetycznych.</div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-title">Prace awaryjne i sezonowe <span>−</span></div>
+      <div class="accordion-content">Usuwanie zagrażających konarów, usuwanie skutków wichur, przygotowanie terenów pod zabudowę oraz szybka reakcja w nagłych sytuacjach, odsnieżanie.</div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="kontakt" class="footer">
+<div class="container">
+
+  <div class="badge">Kontakt</div>
+  <h2 style="font-size:52px;margin-top:15px;">Skontaktuj się z nami</h2>
+
+  <div class="footer-grid">
+    <div>
+      <p>Email</p>
+      <p style="margin-top:12px;">Numer Telefonu</p>
+    </div>
+    <div class="right">
+      <p>badar.opatkowice@gmail.com</p>
+      <p style="margin-top:12px;">+48 501 357 422</p>
+    </div>
+  </div>
+
+  <div class="copy">© BADAR</div>
+
+</div>
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+
+/* AUTO SLIDER */
+const images = [
+ "img1.jpg",
+ "img2.webp",
+ "img3.jpg",
+ "img4.webp",
+ "img5.webp",
+ "img6.webp",
+ "img7.webp",
+ "img8.jpg",
+ "img9.webp",
+ "img10.webp",
+ "img11.webp",
+ "img12.jpg",
+ "img13.webp",
+ "img14.jpg",
+ "img15.jpg",
+ "img16.webp",
+ "img17.webp",
+ "img18.webp",
+ "img19.jpg",
+];
+
+images.forEach(src => {
+  track.innerHTML += `<img src="${src}">`;
+});
+
+images.forEach(src => {
+  track.innerHTML += `<img src="${src}">`;
+});
+
+/* ACCORDION START OPEN */
+document.querySelectorAll('.accordion-title').forEach(title=>{
+ title.onclick=()=>{
+   const content=title.nextElementSibling;
+   const icon=title.querySelector('span');
+   if(content.style.display==='none'){
+     content.style.display='block';
+     icon.textContent='−';
+   }else{
+     content.style.display='none';
+     icon.textContent='+';
+   }
+ }
+});
+
+/* COUNTER */
+const nums=document.querySelectorAll('.num');
+const io=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+const el=e.target;
+const target=+el.dataset.target;
+let n=0;
+const step=target/80;
+const timer=setInterval(()=>{
+n+=step;
+if(n>=target){n=target;clearInterval(timer);}
+el.textContent=Math.floor(n)+(target===100?'%':'+');
+},20);
+io.unobserve(el);
+}
+});
+});
+nums.forEach(n=>io.observe(n));
+
+</script>
+</body>
+</html>
